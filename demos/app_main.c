@@ -22,6 +22,7 @@
 #include "awtk.h"
 #include "../res/assets.inc"
 #include "lcd/lcd_mem_rgba8888.h"
+#include "layer_window_register.h"
 #include "layer_window/layer_manager.h"
 
 static canvas_t* s_canvas_fast = NULL;
@@ -56,9 +57,8 @@ static ret_t layers_deinit(void) {
 ret_t application_init() {
   widget_t* win = NULL;
 
+  layer_window_register();
   layers_init();
-  window_open("system_bar");
-  window_open("main");
   win = window_open("layer_window");
 
   return RET_OK;

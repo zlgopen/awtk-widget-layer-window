@@ -1,0 +1,23 @@
+LIBRARY   layer_window
+EXPORTS
+    layer_window_register
+    layer_window_supported_render_mode
+    layer_manager_create
+    layer_manager_add
+    layer_manager_find
+    layer_manager_destroy
+    layer_manager
+    layer_manager_set
+    layer_window_create
+    layer_window_set_layer_name
+    layer_window_cast
+    layer_set_name
+    layer_set_show_fps
+    layer_set_x
+    layer_set_y
+    layer_set_max_fps
+    layer_create
+    layer_add_layer_window
+    layer_remove_layer_window
+    layer_invalidate
+    layer_start

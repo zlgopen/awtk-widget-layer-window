@@ -1,0 +1,524 @@
+[
+  {
+    "params": [],
+    "annotation": {
+      "global": true
+    },
+    "desc": "注册控件。",
+    "name": "layer_window_register",
+    "return": {
+      "type": "ret_t",
+      "desc": "返回RET_OK表示成功，否则表示失败。"
+    },
+    "type": "method",
+    "header": "src/layer_window_register.h",
+    "level": 1
+  },
+  {
+    "params": [],
+    "annotation": {
+      "global": true
+    },
+    "desc": "获取支持的渲染模式。",
+    "name": "layer_window_supported_render_mode",
+    "return": {
+      "type": "const char*",
+      "desc": "返回渲染模式。"
+    },
+    "type": "method",
+    "header": "src/layer_window_register.h",
+    "level": 1
+  },
+  {
+    "type": "class",
+    "methods": [
+      {
+        "params": [],
+        "annotation": {},
+        "desc": "创建对象。",
+        "name": "layer_manager_create",
+        "return": {
+          "type": "layer_manager_t*",
+          "desc": "返回非NULL表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "layer_manager_t*",
+            "name": "layer_manager",
+            "desc": "layer_manager对象。"
+          },
+          {
+            "type": "layer_t*",
+            "name": "layer",
+            "desc": "layer对象。"
+          }
+        ],
+        "annotation": {},
+        "desc": "增加层。",
+        "name": "layer_manager_add",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "layer_manager_t*",
+            "name": "layer_manager",
+            "desc": "layer_manager对象。"
+          },
+          {
+            "type": "const char*",
+            "name": "name",
+            "desc": "名称。"
+          }
+        ],
+        "annotation": {},
+        "desc": "查找层。",
+        "name": "layer_manager_find",
+        "return": {
+          "type": "layer_manager_t*",
+          "desc": "返回非NULL表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "layer_manager_t*",
+            "name": "layer_manager",
+            "desc": "layer_manager对象。"
+          }
+        ],
+        "annotation": {},
+        "desc": "销毁layer manager对象。",
+        "name": "layer_manager_destroy",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [],
+        "annotation": {},
+        "desc": "获取全局的layer manager对象。",
+        "name": "layer_manager",
+        "return": {
+          "type": "layer_manager_t*",
+          "desc": "返回非NULL表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "layer_manager_t*",
+            "name": "layer_manager",
+            "desc": "layer_manager对象。"
+          }
+        ],
+        "annotation": {},
+        "desc": "设置全局的layer manager对象。",
+        "name": "layer_manager_set",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      }
+    ],
+    "events": [],
+    "properties": [
+      {
+        "name": "nr",
+        "desc": "层的个数",
+        "type": "uint32_t",
+        "annotation": {
+          "readable": true
+        }
+      }
+    ],
+    "header": "layer_window/layer_manager.h",
+    "desc": "LCD layer manager。",
+    "name": "layer_manager_t",
+    "level": 1
+  },
+  {
+    "type": "class",
+    "methods": [
+      {
+        "params": [
+          {
+            "type": "widget_t*",
+            "name": "parent",
+            "desc": "父控件"
+          },
+          {
+            "type": "xy_t",
+            "name": "x",
+            "desc": "x坐标"
+          },
+          {
+            "type": "xy_t",
+            "name": "y",
+            "desc": "y坐标"
+          },
+          {
+            "type": "wh_t",
+            "name": "w",
+            "desc": "宽度"
+          },
+          {
+            "type": "wh_t",
+            "name": "h",
+            "desc": "高度"
+          }
+        ],
+        "annotation": {
+          "constructor": true,
+          "scriptable": true
+        },
+        "desc": "创建layer_window对象",
+        "name": "layer_window_create",
+        "return": {
+          "type": "widget_t*",
+          "desc": "对象。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "widget_t*",
+            "name": "widget",
+            "desc": "控件对象。"
+          },
+          {
+            "type": "const char*",
+            "name": "layer_name",
+            "desc": "层的名称。"
+          }
+        ],
+        "annotation": {
+          "scriptable": true
+        },
+        "desc": "设置层的名称。",
+        "name": "layer_window_set_layer_name",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "widget_t*",
+            "name": "widget",
+            "desc": "layer_window对象。"
+          }
+        ],
+        "annotation": {
+          "cast": true,
+          "scriptable": true
+        },
+        "desc": "转换为layer_window对象(供脚本语言使用)。",
+        "name": "layer_window_cast",
+        "return": {
+          "type": "widget_t*",
+          "desc": "layer_window对象。"
+        }
+      }
+    ],
+    "events": [],
+    "properties": [
+      {
+        "name": "layer_name",
+        "desc": "layer的名称。",
+        "type": "char*",
+        "annotation": {
+          "set_prop": true,
+          "get_prop": true,
+          "readable": true,
+          "persitent": true,
+          "design": true,
+          "scriptable": true
+        }
+      }
+    ],
+    "header": "layer_window/layer_window.h",
+    "desc": "layer_window窗口。\n\n用于将窗口显示到指定的层上。\n\nlayer_window\\_t是[window\\_base\\_t](window_base_t.md)的子类控件，window\\_base\\_t的函数均适用于layer_window\\_t控件。\n\n在xml中使用\"layer_window\"标签创建窗口。需要指定坐标和大小，可以指定窗体样式和动画名称。如：\n\n```xml\n<layer_window theme=\"basic\" x=\"100\" y=\"100\" w=\"200\" h=\"300\" layer_name=\"fast\">\n...\n</layer_window>\n```\n\n>\n更多用法请参考：[layer_window.xml](https://github.com/zlgopen/awtk/blob/master/design/default/ui/)\n\n在c代码中使用函数layer_window\\_create创建窗口。如：\n\n```c\nwidget_t* layer_window = layer_window_create(NULL, 100, 100, 200, 300);\n```\n\n> 完整示例请参考：[layer_window\ndemo](https://github.com/zlgopen/awtk-c-demos/blob/master/demos/)\n\n可用通过style来设置窗口的风格，如背景颜色或图片等。如：\n\n```xml\n<style name=\"bricks\">\n<normal bg_image=\"bricks\"  bg_image_draw_type=\"repeat\"/>\n</style>\n```\n\n> 更多用法请参考：[theme\ndefault](https://github.com/zlgopen/awtk/blob/master/design/default/styles/default.xml#L0)",
+    "name": "layer_window_t",
+    "parent": "window_base_t",
+    "annotation": {
+      "scriptable": true,
+      "design": true,
+      "widget": true,
+      "window": true
+    },
+    "level": 2
+  },
+  {
+    "type": "class",
+    "methods": [
+      {
+        "params": [
+          {
+            "type": "layer_t*",
+            "name": "layer",
+            "desc": "layer对象。"
+          },
+          {
+            "type": "const char*",
+            "name": "name",
+            "desc": "名称"
+          }
+        ],
+        "annotation": {},
+        "desc": "设置 名称",
+        "name": "layer_set_name",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "layer_t*",
+            "name": "layer",
+            "desc": "layer对象。"
+          },
+          {
+            "type": "bool_t",
+            "name": "show_fps",
+            "desc": "是否显示FPS。"
+          }
+        ],
+        "annotation": {},
+        "desc": "设置是否显示FPS。",
+        "name": "layer_set_show_fps",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "layer_t*",
+            "name": "layer",
+            "desc": "layer对象。"
+          },
+          {
+            "type": "uint32_t",
+            "name": "x",
+            "desc": "x坐标"
+          }
+        ],
+        "annotation": {},
+        "desc": "设置 x坐标",
+        "name": "layer_set_x",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "layer_t*",
+            "name": "layer",
+            "desc": "layer对象。"
+          },
+          {
+            "type": "uint32_t",
+            "name": "y",
+            "desc": "y坐标"
+          }
+        ],
+        "annotation": {},
+        "desc": "设置 y坐标",
+        "name": "layer_set_y",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "layer_t*",
+            "name": "layer",
+            "desc": "layer对象。"
+          },
+          {
+            "type": "uint32_t",
+            "name": "max_fps",
+            "desc": "最大帧率"
+          }
+        ],
+        "annotation": {},
+        "desc": "设置 最大帧率",
+        "name": "layer_set_max_fps",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "const char*",
+            "name": "name",
+            "desc": "名称。"
+          },
+          {
+            "type": "canvas_t*",
+            "name": "canvas",
+            "desc": "canvas对象。"
+          },
+          {
+            "type": "uint32_t",
+            "name": "x",
+            "desc": "x坐标。"
+          },
+          {
+            "type": "uint32_t",
+            "name": "y",
+            "desc": "y坐标。"
+          },
+          {
+            "type": "uint32_t",
+            "name": "max_fps",
+            "desc": "max_fps坐标。"
+          }
+        ],
+        "annotation": {},
+        "desc": "创建对象。",
+        "name": "layer_create",
+        "return": {
+          "type": "layer_t*",
+          "desc": "返回非NULL表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "layer_t*",
+            "name": "layer",
+            "desc": "layer对象。"
+          },
+          {
+            "type": "widget_t*",
+            "name": "widget",
+            "desc": "widget对象。"
+          }
+        ],
+        "annotation": {},
+        "desc": "增加layer window。",
+        "name": "layer_add_layer_window",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "layer_t*",
+            "name": "layer",
+            "desc": "layer对象。"
+          },
+          {
+            "type": "widget_t*",
+            "name": "widget",
+            "desc": "widget对象。"
+          }
+        ],
+        "annotation": {},
+        "desc": "移除layer window。",
+        "name": "layer_remove_layer_window",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "layer_t*",
+            "name": "layer",
+            "desc": "layer对象。"
+          },
+          {
+            "type": "rect_t*",
+            "name": "rect",
+            "desc": "rect对象。"
+          }
+        ],
+        "annotation": {},
+        "desc": "使指定区域无效。",
+        "name": "layer_invalidate",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      },
+      {
+        "params": [
+          {
+            "type": "layer_t*",
+            "name": "layer",
+            "desc": "layer对象。"
+          }
+        ],
+        "annotation": {},
+        "desc": "开始运行。",
+        "name": "layer_start",
+        "return": {
+          "type": "ret_t",
+          "desc": "返回RET_OK表示成功，否则表示失败。"
+        }
+      }
+    ],
+    "events": [],
+    "properties": [
+      {
+        "name": "name",
+        "desc": "名称",
+        "type": "char*",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "x",
+        "desc": "x坐标",
+        "type": "uint32_t",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "y",
+        "desc": "y坐标",
+        "type": "uint32_t",
+        "annotation": {
+          "readable": true
+        }
+      },
+      {
+        "name": "max_fps",
+        "desc": "最大帧率",
+        "type": "uint32_t",
+        "annotation": {
+          "readable": true
+        }
+      }
+    ],
+    "header": "layer_window/layer.h",
+    "desc": "LCD layer。",
+    "name": "layer_t",
+    "parent": "object",
+    "level": 2
+  }
+]

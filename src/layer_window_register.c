@@ -19,7 +19,6 @@
  *
  */
 
-
 #include "tkc/mem.h"
 #include "tkc/utils.h"
 #include "layer_window_register.h"

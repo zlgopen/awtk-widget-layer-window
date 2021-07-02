@@ -1,6 +1,7 @@
 <window theme="main" >
-  <view x="c" y="m" w="240" h="240" children_layout="default(r=4,c=1,s=10,m=10)">
-    <layer_window />
-    <button name="close" text="Close"/>
-  </view>
+  <gauge x="c" y="10" w="240" h="240" image="gauge_bg" >
+  </gauge>
+   
+   <gauge x="c" y="b" w="240" h="240" image="gauge_bg" >
+  </gauge>
 </window>

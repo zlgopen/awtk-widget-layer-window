@@ -19,7 +19,6 @@
  *
  */
 
-
 #ifndef TK_LAYER_WINDOW_REGISTER_H
 #define TK_LAYER_WINDOW_REGISTER_H
 

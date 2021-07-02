@@ -1,4 +1,4 @@
-﻿/**
+/**
  * File:   layer.c
  * Author: AWTK Develop Team
  * Brief:  LCD layer。
@@ -220,9 +220,9 @@ ret_t layer_paint(layer_t* layer) {
     canvas_set_fps(c, layer->show_fps, fps_get(&(layer->fps)));
 
     canvas_begin_frame(c, &r, LCD_DRAW_NORMAL);
+    canvas_clear_rect(c, r.x, r.y, r.w, r.h);
     for (i = 0; i < arr->size; i++) {
       widget_t* iter = WIDGET(arr->elms[i]);
-
       iter->visible = TRUE;
       iter->x -= layer->x;
       iter->y -= layer->y;
@@ -245,7 +245,38 @@ ret_t layer_paint(layer_t* layer) {
 }
 
 ret_t layer_invalidate(layer_t* layer, const rect_t* rect) {
+  uint32_t max_w = 0;
+  uint32_t max_h = 0;
+  rect_t r;
   return_value_if_fail(layer != NULL && rect != NULL, RET_BAD_PARAMS);
+
+  r = *rect;
+  max_w = canvas_get_width(layer->canvas);
+  max_h = canvas_get_height(layer->canvas);
+
+  if (r.w > max_w) {
+    r.w = max_w;
+  }
+
+  if (r.h > max_w) {
+    r.h = max_h;
+  }
+
+  if (r.x < 0) {
+    r.x = 0;
+  }
+
+  if (r.y < 0) {
+    r.y = 0;
+  }
+
+  if ((r.x + r.w) > max_w) {
+    r.w = max_w - r.x;
+  }
+
+  if ((r.y + r.h) > max_h) {
+    r.h = max_h - r.y;
+  }
 
   return dirty_rects_add(&(layer->dirty_rects), rect);
 }

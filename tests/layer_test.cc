@@ -35,7 +35,6 @@ TEST(Layer, dirty_rect) {
   ASSERT_EQ(layer->dirty_rects.max.w, 40);
   ASSERT_EQ(layer->dirty_rects.max.h, 50);
 
-  ASSERT_EQ(layer_paint(layer), RET_OK);
   ASSERT_EQ(layer->dirty_rects.max.w, 0);
   ASSERT_EQ(layer->dirty_rects.max.h, 0);
 
@@ -82,7 +81,6 @@ TEST(Layer, windows) {
   idle_dispatch();
   ASSERT_EQ(layer->windows.size, 0);
 
-  ASSERT_EQ(layer_paint(layer), RET_OK);
   ASSERT_EQ(layer->dirty_rects.max.w, 0);
   ASSERT_EQ(layer->dirty_rects.max.h, 0);
 

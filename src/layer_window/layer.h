@@ -182,9 +182,6 @@ ret_t layer_invalidate(layer_t* layer, const rect_t* rect);
  */
 ret_t layer_start(layer_t* layer);
 
-/*public for test*/
-ret_t layer_paint(layer_t* layer);
-
 END_C_DECLS
 
 #endif /*TK_LAYER_H*/
